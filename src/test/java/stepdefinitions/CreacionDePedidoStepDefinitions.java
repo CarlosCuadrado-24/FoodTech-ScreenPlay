@@ -7,6 +7,7 @@ import io.cucumber.java.es.Y;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import questions.ElEstadoDeLaMesa;
+import questions.ElNumeroDePrimeraMesaDisponible;
 import questions.ElProductoEnElResumen;
 import questions.ElTotalDeItems;
 import questions.LaCantidadDelProducto;
@@ -14,10 +15,13 @@ import tasks.AgregarProducto;
 import tasks.EnviarPedido;
 import tasks.Navegar;
 import tasks.SeleccionarMesa;
+import tasks.SeleccionarPrimeraMesaDisponible;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.isEmptyString;
 
 /**
  * Step Definitions para HU-QA-001: Verificar flujo completo de creación de pedido.
@@ -31,6 +35,20 @@ public class CreacionDePedidoStepDefinitions {
     public void queMeseroAccedeAlSistema() {
         theActorCalled(EL_MESERO).attemptsTo(
                 Navegar.alSistemaDeGestionDePedidos()
+        );
+    }
+
+    @Y("existe al menos una mesa disponible")
+    public void existeAlMenosUnaMesaDisponible() {
+        theActorCalled(EL_MESERO).should(
+                seeThat(ElNumeroDePrimeraMesaDisponible.enElSistema(), not(isEmptyString()))
+        );
+    }
+
+    @Cuando("el mesero selecciona la primera mesa disponible")
+    public void elMeseroSeleccionaLaPrimeraMesaDisponible() {
+        theActorCalled(EL_MESERO).attemptsTo(
+                SeleccionarPrimeraMesaDisponible.delSistema()
         );
     }
 

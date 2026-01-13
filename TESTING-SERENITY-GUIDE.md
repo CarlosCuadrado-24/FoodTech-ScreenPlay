@@ -46,7 +46,7 @@ Este documento proporciona todos los selectores (data-testid, ids y atributos) n
 | **Panel resumen** | `[data-testid="order-summary"]` | `//div[@data-testid='order-summary']` | Panel completo del resumen |
 | Badge "Orden Activa" | `[data-testid="order-active-badge"]` | `//span[@data-testid='order-active-badge']` | Badge que indica orden activa |
 | **Lista de productos** | `[data-testid="order-products-list"]` | `//div[@data-testid='order-products-list']` | Contenedor de productos |
-| Item de orden | `[data-testid="order-item-gin-tonic-premium"]` | `//div[@data-product-name='Gin Tonic Premium']` | Item individual en la orden |
+| Item de orden | `[data-testid="order-item-gin-tonic-premium"]` | `//div[@data-testid='order-item-gin-tonic-premium']` | Item individual en la orden |
 | Nombre en orden | `[data-testid="order-item-name"]` | `.//span[@data-testid='order-item-name']` | Nombre del producto en orden |
 | Cantidad en orden | `[data-testid="order-item-quantity"]` | `.//span[@data-testid='order-item-quantity']` | Cantidad (ej: "x2") |
 | Botón eliminar producto | `[data-testid="remove-product-btn-gin-tonic-premium"]` | `//button[@data-testid='remove-product-btn-gin-tonic-premium']` | Botón para eliminar |
@@ -63,7 +63,7 @@ Then la mesa "A1" debe tener estado "Disponible"
 
 # Verificar que producto fue agregado
 And el producto "Gin Tonic Premium" debe mostrar badge "Agregado"
-# XPath: //div[@data-product-name='Gin Tonic Premium']//span[@data-testid='product-added-badge']
+# XPath: //div[@data-testid='product-card-gin-tonic-premium'][@data-is-in-order='true']//span[@data-testid='product-added-badge']
 
 # Verificar total de items
 And el total de items debe ser "3"
@@ -186,9 +186,12 @@ Además de `data-testid`, los elementos tienen atributos semánticos:
      data-table-status="DISPONIBLE">
 
 <!-- Producto en orden -->
-<div data-testid="order-item-gin-tonic" 
-     data-product-name="Gin Tonic Premium" 
-     data-product-quantity="2">
+<div data-testid="order-item-gin-tonic-premium" 
+     data-product-name="Gin Tonic Premium">
+  <span data-testid="order-item-name">Gin Tonic Premium</span>
+  <span data-testid="order-item-quantity">x2</span>
+  <button data-testid="remove-product-btn-gin-tonic-premium">...</button>
+</div>
 
 <!-- Tarea -->
 <div data-testid="task-card-123" 
@@ -772,7 +775,54 @@ mvn serenity:aggregate
 
 ---
 
-## 📊 Tips de Testing
+## � Recomendaciones para Mejorar Testabilidad
+
+### Items de Orden (OrderSummary.tsx)
+
+**Problema Actual:** Los items individuales no tienen `data-testid` únicos.
+
+**Solución Recomendada:** Agregar atributos al componente:
+```tsx
+// En OrderSummary.tsx, línea ~42
+<div 
+  key={product.name}
+  data-testid={`order-item-${product.name.replace(/\s+/g, '-').toLowerCase()}`}
+  data-product-name={product.name}
+  className="flex justify-between items-start group"
+>
+  <div className="flex-1">
+    <div className="flex items-center gap-1 sm:gap-2">
+      <span 
+        data-testid="order-item-name"
+        className="text-white-text text-sm sm:text-base font-bold"
+      >
+        {product.name}
+      </span>
+      <span 
+        data-testid="order-item-quantity"
+        className="text-primary text-xs sm:text-sm font-bold"
+      >
+        x{product.quantity}
+      </span>
+    </div>
+  </div>
+  <button
+    data-testid={`remove-product-btn-${product.name.replace(/\s+/g, '-').toLowerCase()}`}
+    onClick={() => onRemoveProduct(product.name)}
+    className="opacity-0 group-hover:opacity-100 transition-opacity text-silver-text hover:text-primary"
+  >
+    <span className="material-symbols-outlined text-lg">
+      remove_circle
+    </span>
+  </button>
+</div>
+```
+
+Esto facilitará enormemente la automatización con Serenity.
+
+---
+
+## �📊 Tips de Testing
 
 ### 1. Esperas Inteligentes
 

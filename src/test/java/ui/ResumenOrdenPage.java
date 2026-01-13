@@ -37,18 +37,18 @@ public class ResumenOrdenPage {
             .locatedBy("[data-testid='order-item-{0}']");
 
     /**
-     * Nombre del producto dentro del item de orden
+     * Nombre del producto dentro del item de orden (parametrizado por producto)
      */
     public static Target NOMBRE_EN_ORDEN = Target
-            .the("nombre del producto en orden")
-            .locatedBy("[data-testid='order-item-name']");
+            .the("nombre del producto {0} en orden")
+            .locatedBy("//div[@data-testid='order-item-{0}']//span[@data-testid='order-item-name']");
 
     /**
      * Cantidad del producto en la orden (ej: "x2")
      */
     public static Target CANTIDAD_EN_ORDEN = Target
             .the("cantidad del producto {0} en orden")
-            .locatedBy("[data-testid='order-item-{0}'] [data-testid='order-item-quantity']");
+            .locatedBy("//div[@data-testid='order-item-{0}']//span[@data-testid='order-item-quantity']");
 
     /**
      * Botón para eliminar un producto de la orden
