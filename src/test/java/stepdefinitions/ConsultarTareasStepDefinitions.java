@@ -19,10 +19,10 @@ public class ConsultarTareasStepDefinitions {
         );
     }
 
-    @Entonces("el sistema debe mostrar al menos {int} tarea en la estación")
-    public void elSistemaDebeMostrarAlMenosUnaTareaEnLaEstacion(Integer cantidadMinima) {
-        theActorInTheSpotlight().should(
-                seeThat(LaCantidadDeTareas.visibles(), greaterThanOrEqualTo(cantidadMinima))
+    @Cuando("el personal de cocina caliente accede a su estación")
+    public void elPersonalDeCocinaCalienteAccedeASuEstacion() {
+        theActorInTheSpotlight().attemptsTo(
+                NavegarAEstacion.llamada("COCINA CALIENTE")
         );
     }
 
@@ -33,45 +33,24 @@ public class ConsultarTareasStepDefinitions {
         );
     }
 
-    @Entonces("el sistema debe indicar que no hay tareas o mostrar cero tareas")
-    public void elSistemaDebeIndicarQueNoHayTareasOMostrarCeroTareas() {
-        theActorInTheSpotlight().should(
-                seeThat(NoHayTareasPendientes.enLaEstacion(), equalTo(true))
-        );
-    }
-
-    @Y("la tarea debe mostrar información de la mesa")
-    public void laTareaDebeMostrarInformacionDeLaMesa() {
-        theActorInTheSpotlight().should(
-                seeThat(LaInformacionDeLaTarea.muestraLaMesa(""), equalTo(true))
-        );
-    }
-
-    @Y("la tarea debe mostrar identificador de orden")
-    public void laTareaDebeMostrarIdentificadorDeOrden() {
-        theActorInTheSpotlight().should(
-                seeThat(LaInformacionDeLaTarea.muestraElIdDeOrden(), equalTo(true))
-        );
-    }
-
-    @Cuando("el personal de cocina caliente accede a su estación")
-    public void elPersonalDeCocinaCalienteAccedeASuEstacion() {
-        theActorInTheSpotlight().attemptsTo(
-                NavegarAEstacion.llamada("COCINA CALIENTE")
-        );
-    }
-
-    @Entonces("el sistema debe mostrar al menos {int} tareas en la estación")
-    public void elSistemaDebeMostrarAlMenosTareasEnLaEstacion(Integer cantidadMinima) {
+    @Entonces("el sistema debe mostrar al menos {int} tarea en la estación")
+    public void elSistemaDebeMostrarAlMenosUnaTareaEnLaEstacion(Integer cantidadMinima) {
         theActorInTheSpotlight().should(
                 seeThat(LaCantidadDeTareas.visibles(), greaterThanOrEqualTo(cantidadMinima))
         );
     }
 
-    @Y("cada tarea debe mostrar información de su mesa")
-    public void cadaTareaDebeMostrarInformacionDeSuMesa() {
+    @Y("cada tarea debe mostrar el número de mesa")
+    public void cadaTareaDebeMostrarElNumeroDeMesa() {
         theActorInTheSpotlight().should(
-                seeThat(LaCantidadDeTareas.visibles(), greaterThan(0))
+                seeThat(LaInformacionDeLaTarea.muestraLaMesa(""), equalTo(true))
+        );
+    }
+
+    @Y("cada tarea debe mostrar el identificador de orden")
+    public void cadaTareaDebeMostrarElIdentificadorDeOrden() {
+        theActorInTheSpotlight().should(
+                seeThat(LaInformacionDeLaTarea.muestraElIdDeOrden(), equalTo(true))
         );
     }
 }

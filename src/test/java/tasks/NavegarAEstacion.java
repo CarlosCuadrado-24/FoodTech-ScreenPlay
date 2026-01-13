@@ -28,13 +28,13 @@ public class NavegarAEstacion implements Task {
         switch (estacion.toUpperCase()) {
             case "BARRA":
             case "BAR":
-                return "http://localhost:5173/bar";
+                return "http://localhost:5173/barra";
             case "COCINA CALIENTE":
             case "HOT_KITCHEN":
-                return "http://localhost:5173/hot-kitchen";
+                return "http://localhost:5173/cocina-caliente";
             case "COCINA FRÍA":
             case "COLD_KITCHEN":
-                return "http://localhost:5173/cold-kitchen";
+                return "http://localhost:5173/cocina-fria";
             default:
                 return "http://localhost:5173";
         }

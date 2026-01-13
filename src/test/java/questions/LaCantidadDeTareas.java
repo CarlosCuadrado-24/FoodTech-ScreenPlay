@@ -23,12 +23,20 @@ public class LaCantidadDeTareas implements Question<Integer> {
 
     @Override
     public Integer answeredBy(Actor actor) {
-        if (estacion == null) {
-            return EstacionCocinaPage.TODAS_LAS_TAREAS.resolveAllFor(actor).size();
+        try {
+            // Esperar un momento para que las tareas se carguen
+            Thread.sleep(2000);
+            
+            if (estacion == null) {
+                return EstacionCocinaPage.TODAS_LAS_TAREAS.resolveAllFor(actor).size();
+            }
+
+            String codigoEstacion = obtenerCodigoEstacion(estacion);
+            return EstacionCocinaPage.TAREAS_POR_ESTACION.of(codigoEstacion).resolveAllFor(actor).size();
+        } catch (Exception e) {
+            // Si no se encuentran elementos, retornar 0 en lugar de fallar
+            return 0;
         }
-        
-        String codigoEstacion = obtenerCodigoEstacion(estacion);
-        return EstacionCocinaPage.TAREAS_POR_ESTACION.of(codigoEstacion).resolveAllFor(actor).size();
     }
 
     private String obtenerCodigoEstacion(String estacion) {

@@ -61,14 +61,28 @@ public class CreacionDePedidoStepDefinitions {
 
     @Cuando("el mesero selecciona la mesa {string}")
     public void elMeseroSeleccionaLaMesa(String numeroMesa) {
-        theActorCalled(EL_MESERO).attemptsTo(
+        OnStage.theActorInTheSpotlight().attemptsTo(
+                SeleccionarMesa.conNumero(numeroMesa)
+        );
+    }
+
+    @Dado("que el mesero ha seleccionado la mesa {string}")
+    public void queElMeseroHaSeleccionadoLaMesa(String numeroMesa) {
+        OnStage.theActorInTheSpotlight().attemptsTo(
                 SeleccionarMesa.conNumero(numeroMesa)
         );
     }
 
     @Y("el mesero agrega el producto {string} al pedido")
     public void elMeseroAgregaElProducto(String nombreProducto) {
-        theActorCalled(EL_MESERO).attemptsTo(
+        OnStage.theActorInTheSpotlight().attemptsTo(
+                AgregarProducto.conNombre(nombreProducto)
+        );
+    }
+
+    @Y("el mesero ha agregado {string} al pedido")
+    public void elMeseroHaAgregadoAlPedido(String nombreProducto) {
+        OnStage.theActorInTheSpotlight().attemptsTo(
                 AgregarProducto.conNombre(nombreProducto)
         );
     }
@@ -90,7 +104,7 @@ public class CreacionDePedidoStepDefinitions {
 
     @Cuando("el mesero envía el pedido a cocina")
     public void elMeseroEnviaElPedidoACocina() {
-        theActorCalled(EL_MESERO).attemptsTo(
+        OnStage.theActorInTheSpotlight().attemptsTo(
                 EnviarPedido.aLaCocina()
         );
     }

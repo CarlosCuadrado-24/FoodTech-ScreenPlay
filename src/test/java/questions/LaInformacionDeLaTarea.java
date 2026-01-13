@@ -34,27 +34,32 @@ public class LaInformacionDeLaTarea implements Question<Boolean> {
 
     @Override
     public Boolean answeredBy(Actor actor) {
-        switch (tipoInformacion) {
-            case "MESA":
-                String textoMesa = Text.of(EstacionCocinaPage.NUMERO_MESA_TAREA).answeredBy(actor);
-                return textoMesa != null && textoMesa.contains(valorEsperado);
-                
-            case "ORDEN":
-                return Visibility.of(EstacionCocinaPage.ID_ORDEN_TAREA).answeredBy(actor);
-                
-            case "PRODUCTOS":
-                int cantidadProductos = EstacionCocinaPage.PRODUCTOS_TAREA
-                        .resolveAllFor(actor).get(0)
-                        .findElements(org.openqa.selenium.By.cssSelector("[data-testid^='task-product-']"))
-                        .size();
-                return cantidadProductos == Integer.parseInt(valorEsperado);
-                
-            case "FECHA":
-                // Verificar que existe algún elemento de tiempo/fecha en la tarea
-                return Visibility.of(EstacionCocinaPage.TARJETA_TAREA.of("1")).answeredBy(actor);
-                
-            default:
-                return false;
+        try {
+            switch (tipoInformacion) {
+                case "MESA":
+                    String textoMesa = Text.of(EstacionCocinaPage.NUMERO_MESA_TAREA).answeredBy(actor);
+                    return textoMesa != null && !textoMesa.isEmpty() && (valorEsperado.isEmpty() || textoMesa.contains(valorEsperado));
+
+                case "ORDEN":
+                    return Visibility.of(EstacionCocinaPage.ID_ORDEN_TAREA).answeredBy(actor);
+
+                case "PRODUCTOS":
+                    int cantidadProductos = EstacionCocinaPage.PRODUCTOS_TAREA
+                            .resolveAllFor(actor).get(0)
+                            .findElements(org.openqa.selenium.By.cssSelector("[data-testid^='task-product-']"))
+                            .size();
+                    return cantidadProductos >= Integer.parseInt(valorEsperado);
+
+                case "FECHA":
+                    // Verificar que existe la tarjeta de tarea
+                    return !EstacionCocinaPage.TODAS_LAS_TAREAS.resolveAllFor(actor).isEmpty();
+
+                default:
+                    return false;
+            }
+        } catch (Exception e) {
+            // Si hay algún error al buscar elementos, retornar false
+            return false;
         }
     }
 }

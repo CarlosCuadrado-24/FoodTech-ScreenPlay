@@ -1,0 +1,59 @@
+<html lang='en'><head><link href='prism/prism.css' rel='stylesheet' /></head><body><script src='prism/prism.js'></script><body><div><pre><code class='language-html'>&lt;html class="no-js" lang="en"&gt;<br/>
+ &lt;!--&lt;![endif]--&gt;<br/>
+ &lt;head&gt;<br/>
+  &lt;script src="/js/vendor/298279967.js"&gt;&lt;/script&gt;<br/>
+  &lt;meta charset="utf-8"&gt;<br/>
+  &lt;meta name="viewport" content="width=device-width"&gt;<br/>
+  &lt;title&gt;The Internet&lt;/title&gt;<br/>
+  &lt;link href="/css/app.css" rel="stylesheet"&gt;<br/>
+  &lt;link href="/css/font-awesome.css" rel="stylesheet"&gt;<br/>
+  &lt;script src="/js/vendor/jquery-1.11.3.min.js"&gt;&lt;/script&gt;<br/>
+  &lt;script src="/js/vendor/jquery-ui-1.11.4/jquery-ui.js"&gt;&lt;/script&gt;<br/>
+  &lt;script src="/js/foundation/foundation.js"&gt;&lt;/script&gt;<br/>
+  &lt;meta class="foundation-mq-small"&gt;<br/>
+  &lt;meta class="foundation-mq-medium"&gt;<br/>
+  &lt;meta class="foundation-mq-large"&gt;<br/>
+  &lt;style&gt;&lt;/style&gt;<br/>
+  &lt;script src="/js/foundation/foundation.alerts.js"&gt;&lt;/script&gt;<br/>
+  &lt;script&gt;<br/>
+      $(document).foundation();<br/>
+    &lt;/script&gt;<br/>
+ &lt;/head&gt;<br/>
+ &lt;body&gt;<br/>
+  &lt;div class="row"&gt;<br/>
+   &lt;div id="flash-messages" class="large-12 columns"&gt;<br/>
+   &lt;/div&gt;<br/>
+  &lt;/div&gt;<br/>
+  &lt;div class="row"&gt;&lt;a href="https://github.com/tourdedave/the-internet"&gt;&lt;img style="position: absolute; top: 0; right: 0; border: 0;" src="/img/forkme_right_green_007200.png" alt="Fork me on GitHub"&gt;&lt;/a&gt;<br/>
+   &lt;div id="content" class="large-12 columns"&gt;<br/>
+    &lt;script&gt;<br/>
+  $(function(){<br/>
+    $('#start button').click(function(){<br/>
+      $('#start').hide();<br/>
+      $('#start').before("&lt;div id='loading'&gt;Loading... &lt;img src='/img/ajax-loader.gif'&gt;&lt;/div&gt;");<br/>
+      setTimeout(function() {<br/>
+        $('#loading').hide();<br/>
+        $('#loading').before("&lt;div id='finish' style='display:none'&gt;&lt;h4&gt;Hello World!&lt;/h4&gt;&lt;/div&gt;")<br/>
+        $('#finish').show();<br/>
+      } , 5000 );<br/>
+    });<br/>
+  });<br/>
+&lt;/script&gt;<br/>
+    &lt;div class="example"&gt;<br/>
+     &lt;h3&gt;Dynamically Loaded Page Elements&lt;/h3&gt;<br/>
+     &lt;h4&gt;Example 2: Element rendered after the fact&lt;/h4&gt;&lt;br&gt;<br/>
+     &lt;div id="start"&gt;&lt;button&gt;Start&lt;/button&gt;<br/>
+     &lt;/div&gt;&lt;br&gt;<br/>
+    &lt;/div&gt;<br/>
+   &lt;/div&gt;<br/>
+  &lt;/div&gt;<br/>
+  &lt;div id="page-footer" class="row"&gt;<br/>
+   &lt;div class="large-4 large-centered columns"&gt;<br/>
+    &lt;hr&gt;<br/>
+    &lt;div style="text-align: center;"&gt;<br/>
+     Powered by &lt;a target="_blank" href="http://elementalselenium.com/"&gt;Elemental Selenium&lt;/a&gt;<br/>
+    &lt;/div&gt;<br/>
+   &lt;/div&gt;<br/>
+  &lt;/div&gt;<br/>
+ &lt;/body&gt;<br/>
+&lt;/html&gt;</code></pre></div></body></html>

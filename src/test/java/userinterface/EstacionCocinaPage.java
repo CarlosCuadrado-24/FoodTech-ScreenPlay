@@ -23,10 +23,10 @@ public class EstacionCocinaPage {
             .locatedBy("[data-testid='task-product-{0}']");
 
     public static final Target TODAS_LAS_TAREAS = Target.the("todas las tarjetas de tareas")
-            .locatedBy("[data-testid^='task-card-']");
+            .locatedBy("div[data-testid^='task-card-']");
 
     public static final Target TAREAS_POR_ESTACION = Target.the("tareas de la estación {0}")
-            .locatedBy("[data-station='{0}']");
+            .locatedBy("div[data-station='{0}']");
 
     public static final Target MENSAJE_SIN_TAREAS = Target.the("mensaje de sin tareas pendientes")
             .locatedBy("[data-testid='empty-tasks-message']");

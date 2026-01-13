@@ -29,7 +29,7 @@
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">4</div>
+<div class="counter">0</div>
 <p>failures</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">35.519s</div>
+<div class="counter">41.356s</div>
 <p>duration</p>
 </div>
 </td>
@@ -50,8 +50,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox failures" id="successRate">
-<div class="percent">20%</div>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
 <p>successful</p>
 </div>
 </td>
@@ -61,108 +61,13 @@
 <div id="tabs">
 <ul class="tabLinks">
 <li>
-<a href="#tab0">Failed tests</a>
+<a href="#tab0">Tests</a>
 </li>
 <li>
-<a href="#tab1">Tests</a>
-</li>
-<li>
-<a href="#tab2">Standard error</a>
+<a href="#tab1">Standard error</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
-<h2>Failed tests</h2>
-<div class="test">
-<a name="Cada tarea muestra información completa de preparación"></a>
-<h3 class="failures">Cada tarea muestra información completa de preparación</h3>
-<span class="code">
-<pre>io.cucumber.junit.UndefinedStepException: The step 'que el mesero ha seleccionado la mesa &quot;C3&quot;' and 1 other step(s) are undefined.
-You can implement these steps using the snippet(s) below:
-
-@Dado(&quot;que el mesero ha seleccionado la mesa {string}&quot;)
-public void queElMeseroHaSeleccionadoLaMesa(String string) {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
-}
-@Dado(&quot;el mesero ha agregado {string} al pedido&quot;)
-public void elMeseroHaAgregadoAlPedido(String string) {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
-}
-
-</pre>
-</span>
-</div>
-<div class="test">
-<a name="Estación de barra muestra tareas cuando hay pedidos de bebidas"></a>
-<h3 class="failures">Estación de barra muestra tareas cuando hay pedidos de bebidas</h3>
-<span class="code">
-<pre>io.cucumber.junit.UndefinedStepException: The step 'que el mesero ha seleccionado la mesa &quot;A1&quot;' and 1 other step(s) are undefined.
-You can implement these steps using the snippet(s) below:
-
-@Dado(&quot;que el mesero ha seleccionado la mesa {string}&quot;)
-public void queElMeseroHaSeleccionadoLaMesa(String string) {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
-}
-@Dado(&quot;el mesero ha agregado {string} al pedido&quot;)
-public void elMeseroHaAgregadoAlPedido(String string) {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
-}
-
-</pre>
-</span>
-</div>
-<div class="test">
-<a name="Múltiples pedidos generan múltiples tareas visibles"></a>
-<h3 class="failures">Múltiples pedidos generan múltiples tareas visibles</h3>
-<span class="code">
-<pre>io.cucumber.junit.UndefinedStepException: The step 'que el mesero ha seleccionado la mesa &quot;D4&quot;' and 3 other step(s) are undefined.
-You can implement these steps using the snippet(s) below:
-
-@Dado(&quot;que el mesero ha seleccionado la mesa {string}&quot;)
-public void queElMeseroHaSeleccionadoLaMesa(String string) {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
-}
-@Dado(&quot;el mesero ha agregado {string} al pedido&quot;)
-public void elMeseroHaAgregadoAlPedido(String string) {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
-}
-@Dado(&quot;el mesero ha seleccionado la mesa {string}&quot;)
-public void elMeseroHaSeleccionadoLaMesa(String string) {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
-}
-
-</pre>
-</span>
-</div>
-<div class="test">
-<a name="Pedido mixto genera tareas en diferentes estaciones"></a>
-<h3 class="failures">Pedido mixto genera tareas en diferentes estaciones</h3>
-<span class="code">
-<pre>io.cucumber.junit.UndefinedStepException: The step 'que el mesero ha seleccionado la mesa &quot;G7&quot;' and 3 other step(s) are undefined.
-You can implement these steps using the snippet(s) below:
-
-@Dado(&quot;que el mesero ha seleccionado la mesa {string}&quot;)
-public void queElMeseroHaSeleccionadoLaMesa(String string) {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
-}
-@Dado(&quot;el mesero ha agregado {string} al pedido&quot;)
-public void elMeseroHaAgregadoAlPedido(String string) {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
-}
-
-</pre>
-</span>
-</div>
-</div>
-<div id="tab1" class="tab">
 <h2>Tests</h2>
 <table>
 <thead>
@@ -173,54 +78,54 @@ public void elMeseroHaAgregadoAlPedido(String string) {
 </tr>
 </thead>
 <tr>
-<td class="failures">Cada tarea muestra información completa de preparación</td>
-<td class="failures">3.868s</td>
-<td class="failures">failed</td>
-</tr>
-<tr>
-<td class="failures">Estación de barra muestra tareas cuando hay pedidos de bebidas</td>
-<td class="failures">4.080s</td>
-<td class="failures">failed</td>
-</tr>
-<tr>
-<td class="success">Estación sin tareas muestra mensaje correcto</td>
-<td class="success">23.913s</td>
+<td class="success">Cada tarea muestra información completa</td>
+<td class="success">6.577s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="failures">Múltiples pedidos generan múltiples tareas visibles</td>
-<td class="failures">1.027s</td>
-<td class="failures">failed</td>
+<td class="success">Estación de barra muestra tareas de bebidas</td>
+<td class="success">7.580s</td>
+<td class="success">passed</td>
 </tr>
 <tr>
-<td class="failures">Pedido mixto genera tareas en diferentes estaciones</td>
-<td class="failures">2.631s</td>
-<td class="failures">failed</td>
+<td class="success">Estación de cocina caliente muestra tareas de platos calientes</td>
+<td class="success">8.839s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Estación de cocina fría muestra tareas de ensaladas</td>
+<td class="success">7.524s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Navegación entre estaciones funciona correctamente</td>
+<td class="success">10.836s</td>
+<td class="success">passed</td>
 </tr>
 </table>
 </div>
-<div id="tab2" class="tab">
+<div id="tab1" class="tab">
 <h2>Standard error</h2>
 <span class="code">
-<pre>ene. 12, 2026 11:29:36 P. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+<pre>ene. 13, 2026 12:59:32 A. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 143
-ene. 12, 2026 11:29:36 P. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+ene. 13, 2026 12:59:32 A. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 143.0.7499.193. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.23.1` where the version (&quot;v86&quot;) matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-ene. 12, 2026 11:29:39 P. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+ene. 13, 2026 12:59:39 A. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 143
-ene. 12, 2026 11:29:39 P. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+ene. 13, 2026 12:59:39 A. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 143.0.7499.193. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.23.1` where the version (&quot;v86&quot;) matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-ene. 12, 2026 11:30:02 P. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+ene. 13, 2026 12:59:47 A. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 143
-ene. 12, 2026 11:30:02 P. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+ene. 13, 2026 12:59:47 A. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 143.0.7499.193. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.23.1` where the version (&quot;v86&quot;) matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-ene. 12, 2026 11:30:06 P. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+ene. 13, 2026 12:59:55 A. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 143
-ene. 12, 2026 11:30:06 P. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+ene. 13, 2026 12:59:55 A. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 143.0.7499.193. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.23.1` where the version (&quot;v86&quot;) matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-ene. 12, 2026 11:30:07 P. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+ene. 13, 2026 1:00:02 A. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 143
-ene. 12, 2026 11:30:07 P. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+ene. 13, 2026 1:00:02 A. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 143.0.7499.193. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.23.1` where the version (&quot;v86&quot;) matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 </pre>
 </span>
@@ -233,7 +138,7 @@ WARNING: Unable to find version of CDP to use for 143.0.7499.193. You may need t
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.10.1</a> at 12/01/2026, 11:30:10 p. m.</p>
+<a href="http://www.gradle.org">Gradle 8.10.1</a> at 13/01/2026, 1:00:12 a. m.</p>
 </div>
 </div>
 </body>

@@ -1,15 +1,13 @@
 package userinterface;
 
-import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.screenplay.targets.Target;
+import org.openqa.selenium.By;
 
-public class PaginaCargaDinamica extends PageObject {
+public class PaginaCargaDinamica {
 
-    public static final Target BOTON_INICIO = Target.the("Botón para iniciar la carga dinámica")
-            .locatedBy("//button[text()='Start']");
+    public static final Target BOTON_INICIO = Target.the("Botón de inicio")
+            .located(By.id("start"));
 
-    public static final Target MENSAJE_FINAL = Target.the("Mensaje que aparece después de la carga")
-            .locatedBy("//div[@id='finish']/h4");
-
-
+    public static final Target MENSAJE_FINAL = Target.the("Mensaje final")
+            .located(By.id("finish"));
 }
