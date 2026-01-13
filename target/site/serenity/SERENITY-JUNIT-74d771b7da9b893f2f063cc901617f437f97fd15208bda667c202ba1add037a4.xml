@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="1" name="Demostración de esperas implícitas con carga dinámica de elementos" skipped="0" tests="1" time="4.43" timestamp="2025-12-30 02:51:57"><testcase name="Espera implícita al buscar elemento que se agrega al DOM después de un delay"><failure message="&#13;&#10;Expected: &quot;Hello World!&quot;&#13;&#10;     but: was &quot;&quot;" type="java.lang.AssertionError">&#13;
-Expected: "Hello World!"&#13;
-     but: was ""</failure><system-err>&#13;
-Expected: "Hello World!"&#13;
-     but: was ""&#13;
-stepdefinitions.CargaDinamicaStepDefinition.debeAparecerElMensaje(CargaDinamicaStepDefinition.java:38)&#13;
-worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)&#13;
-worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)&#13;
-</system-err></testcase></testsuite>
