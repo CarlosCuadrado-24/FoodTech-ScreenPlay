@@ -12,8 +12,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features/HU_QA_001_CreacionDePedido.feature",
         glue = {"stepdefinitions", "stepdefinitions.hook"},
-        snippets = CucumberOptions.SnippetType.CAMELCASE,
-        tags = "not @wip"
+        snippets = CucumberOptions.SnippetType.CAMELCASE
 )
 public class CreacionDePedidoRunner {
 }

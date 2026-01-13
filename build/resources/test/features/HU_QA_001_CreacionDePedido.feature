@@ -7,7 +7,6 @@ Característica: HU-QA-001 - Verificar flujo completo de creación de pedido
   @escenario1 @smoke
   Escenario: Mesero crea pedido con una bebida para una mesa disponible
     Dado que el mesero accede al sistema de gestión de pedidos
-    Y existe al menos una mesa disponible
     Cuando el mesero selecciona la primera mesa disponible
     Y el mesero agrega el producto "Gin Tonic Premium" al pedido
     Entonces el sistema debe mostrar el producto en el resumen de orden
@@ -18,7 +17,6 @@ Característica: HU-QA-001 - Verificar flujo completo de creación de pedido
   @escenario2
   Escenario: Mesero crea pedido mixto con bebida, plato caliente y ensalada
     Dado que el mesero accede al sistema de gestión de pedidos
-    Y existe al menos una mesa disponible
     Cuando el mesero selecciona la primera mesa disponible
     Y el mesero agrega el producto "Gin Tonic Premium" al pedido
     Y el mesero agrega el producto "Solomillo Wellington" al pedido
@@ -31,23 +29,22 @@ Característica: HU-QA-001 - Verificar flujo completo de creación de pedido
   @escenario3
   Escenario: Mesero agrega el mismo producto varias veces
     Dado que el mesero accede al sistema de gestión de pedidos
-    Y existe al menos una mesa disponible
     Cuando el mesero selecciona la primera mesa disponible
     Y el mesero agrega el producto "Vino Tinto Reserva" al pedido
     Y el mesero agrega el producto "Vino Tinto Reserva" al pedido
     Entonces el sistema debe mostrar el producto "Vino Tinto Reserva" con cantidad "x2"
     Y el total de items debe ser "2"
 
-  @escenario4 @wip
+  @escenario4
   Escenario: Sistema valida que el pedido tenga al menos un producto
     Dado que el mesero accede al sistema de gestión de pedidos
-    Cuando el mesero selecciona la mesa "D4"
+    Cuando el mesero selecciona la primera mesa disponible
     Y el pedido está vacío
     Entonces el botón enviar debe estar deshabilitado
 
-  @escenario5 @wip
+  @escenario5
   Escenario: Sistema valida que se haya seleccionado una mesa
     Dado que el mesero accede al sistema de gestión de pedidos
-    Y el mesero agrega el producto "Ensalada César" al pedido
+    Y el mesero agrega el producto "Ensalada de Burrata" al pedido
     Y no hay ninguna mesa seleccionada
     Entonces el botón enviar debe estar deshabilitado
