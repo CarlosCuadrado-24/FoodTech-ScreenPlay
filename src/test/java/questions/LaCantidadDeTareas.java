@@ -2,7 +2,6 @@ package questions;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
-import net.serenitybdd.screenplay.questions.Visibility;
 import userinterface.EstacionCocinaPage;
 
 public class LaCantidadDeTareas implements Question<Integer> {

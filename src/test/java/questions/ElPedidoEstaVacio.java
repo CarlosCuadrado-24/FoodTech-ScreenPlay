@@ -2,8 +2,6 @@ package questions;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
-import net.serenitybdd.screenplay.questions.Visibility;
-import ui.ResumenOrdenPage;
 
 /**
  * Pregunta para verificar si el pedido está vacío (no contiene productos).

@@ -3,7 +3,6 @@ package stepdefinitions;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
-import net.serenitybdd.screenplay.ensure.Ensure;
 import questions.*;
 import tasks.EliminarProducto;
 

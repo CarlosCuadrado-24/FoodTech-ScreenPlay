@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="runners.ConsultarTareasPorEstacionRunner" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-01-13T05:59:30" hostname="TACSUNE" time="41.356">
+<testsuite name="runners.ConsultarTareasPorEstacionRunner" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-01-13T06:22:41" hostname="TACSUNE" time="41.164">
   <properties/>
-  <testcase name="Estación de barra muestra tareas de bebidas" classname="runners.ConsultarTareasPorEstacionRunner" time="7.58"/>
-  <testcase name="Estación de cocina caliente muestra tareas de platos calientes" classname="runners.ConsultarTareasPorEstacionRunner" time="8.839"/>
-  <testcase name="Estación de cocina fría muestra tareas de ensaladas" classname="runners.ConsultarTareasPorEstacionRunner" time="7.524"/>
-  <testcase name="Cada tarea muestra información completa" classname="runners.ConsultarTareasPorEstacionRunner" time="6.577"/>
-  <testcase name="Navegación entre estaciones funciona correctamente" classname="runners.ConsultarTareasPorEstacionRunner" time="10.836"/>
+  <testcase name="Estación de barra muestra tareas de bebidas" classname="runners.ConsultarTareasPorEstacionRunner" time="8.81"/>
+  <testcase name="Estación de cocina caliente muestra tareas de platos calientes" classname="runners.ConsultarTareasPorEstacionRunner" time="6.525"/>
+  <testcase name="Estación de cocina fría muestra tareas de ensaladas" classname="runners.ConsultarTareasPorEstacionRunner" time="8.221"/>
+  <testcase name="Cada tarea muestra información completa" classname="runners.ConsultarTareasPorEstacionRunner" time="4.461"/>
+  <testcase name="Navegación entre estaciones funciona correctamente" classname="runners.ConsultarTareasPorEstacionRunner" time="13.147"/>
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[ene. 13, 2026 12:59:32 A. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <system-err><![CDATA[ene. 13, 2026 1:22:42 A. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 143
-ene. 13, 2026 12:59:32 A. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+ene. 13, 2026 1:22:42 A. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 143.0.7499.193. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.23.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-ene. 13, 2026 12:59:39 A. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+ene. 13, 2026 1:22:51 A. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 143
-ene. 13, 2026 12:59:39 A. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+ene. 13, 2026 1:22:51 A. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 143.0.7499.193. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.23.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-ene. 13, 2026 12:59:47 A. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+ene. 13, 2026 1:22:57 A. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 143
-ene. 13, 2026 12:59:47 A. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+ene. 13, 2026 1:22:57 A. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 143.0.7499.193. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.23.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-ene. 13, 2026 12:59:55 A. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+ene. 13, 2026 1:23:05 A. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 143
-ene. 13, 2026 12:59:55 A. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+ene. 13, 2026 1:23:05 A. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 143.0.7499.193. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.23.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-ene. 13, 2026 1:00:02 A. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+ene. 13, 2026 1:23:10 A. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 143
-ene. 13, 2026 1:00:02 A. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+ene. 13, 2026 1:23:10 A. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 143.0.7499.193. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.23.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
 </testsuite>
