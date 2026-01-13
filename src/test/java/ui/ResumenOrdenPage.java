@@ -51,7 +51,7 @@ public class ResumenOrdenPage {
             .locatedBy("//div[@data-testid='order-item-{0}']//span[@data-testid='order-item-quantity']");
 
     /**
-     * Botón para eliminar un producto de la orden
+     * Botón para eliminar un producto del pedido (aparece al hacer hover)
      */
     public static Target BOTON_ELIMINAR_PRODUCTO = Target
             .the("botón eliminar producto {0}")

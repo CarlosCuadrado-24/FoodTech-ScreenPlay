@@ -1,1 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="0" name="Demostración de esperas implícitas con carga dinámica de elementos" skipped="0" tests="1" time="8.58" timestamp="2026-01-12 10:47:37"><testcase name="Espera implícita al buscar elemento que se agrega al DOM después de un delay"/></testsuite>
