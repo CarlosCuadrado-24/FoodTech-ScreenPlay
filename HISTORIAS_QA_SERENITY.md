@@ -196,192 +196,7 @@ Scenario: Mesero modifica pedido múltiples veces antes de enviar
 
 ---
 
-## HU-QA-003: Verificar disponibilidad de mesas en tiempo real
-
-### Descripción
-
-**Como** QA del proyecto FoodTech  
-**Quiero** verificar que el sistema actualiza el estado de mesas correctamente  
-**Para** asegurar que los meseros siempre ven información precisa de disponibilidad
-
-### Contexto de Negocio
-
-El estado de las mesas debe reflejar la realidad operativa. Una mesa ocupada no debe poder recibir nuevos pedidos. El sistema debe:
-- Mostrar mesas disponibles para nuevos clientes
-- Marcar mesas ocupadas cuando tienen pedidos activos
-- Prevenir selección de mesas ocupadas
-- Liberar mesas cuando se completan todos los pedidos
-
-### Valor para el Negocio
-
-- Previene errores de asignación de mesas
-- Optimiza rotación de mesas
-- Mejora coordinación entre meseros
-- Evita conflictos operativos
-
----
-
-### Criterios de Aceptación
-
-#### Escenario 1: Mesa disponible puede ser seleccionada
-
-```gherkin
-Scenario: Mesero selecciona mesa disponible para nuevo cliente
-  Given que el mesero accede al sistema de gestión de pedidos
-  And la mesa "A1" está marcada como disponible
-  When el mesero selecciona la mesa "A1"
-  Then el sistema debe permitir agregar productos para esa mesa
-  And la mesa "A1" debe mostrar indicación visual de seleccionada
-```
-
-#### Escenario 2: Mesa se marca ocupada al enviar pedido
-
-```gherkin
-Scenario: Mesa cambia a ocupada después de enviar un pedido
-  Given que la mesa "B2" está disponible
-  And el mesero ha creado un pedido para la mesa "B2"
-  When el mesero envía el pedido a cocina
-  Then la mesa "B2" debe cambiar a estado ocupada
-  And la mesa "B2" debe tener indicación visual diferente
-```
-
-#### Escenario 3: Mesa ocupada no puede ser seleccionada
-
-```gherkin
-Scenario: Sistema impide seleccionar mesas con pedidos activos
-  Given que la mesa "C3" tiene un pedido en preparación en cocina
-  And la mesa "C3" está marcada como ocupada
-  When el mesero intenta seleccionar la mesa "C3"
-  Then el sistema no debe permitir la selección
-  And la mesa "C3" debe mantener su estado ocupada
-```
-
-#### Escenario 4: Mesa se libera cuando se completa el pedido
-
-```gherkin
-Scenario: Mesa vuelve a disponible al completarse todas las tareas
-  Given que la mesa "D4" tiene un pedido en cocina
-  And todas las estaciones han completado sus tareas para ese pedido
-  When el sistema actualiza el estado de las mesas
-  Then la mesa "D4" debe cambiar a estado disponible
-  And el mesero debe poder seleccionar la mesa "D4" nuevamente
-```
-
-#### Escenario 5: Múltiples mesas con diferentes estados
-
-```gherkin
-Scenario: Sistema mantiene estado correcto de múltiples mesas simultáneamente
-  Given que existen 8 mesas en el sistema
-  And las mesas "A1", "A2", "B1" están disponibles
-  And las mesas "B2", "C1", "C2" están ocupadas
-  When el mesero consulta el estado de todas las mesas
-  Then el sistema debe mostrar correctamente 3 mesas disponibles
-  And el sistema debe mostrar correctamente 3 mesas ocupadas
-  And cada mesa debe tener la indicación visual correspondiente
-```
-
----
-
-## HU-QA-004: Verificar visualización de estado de cocina para meseros
-
-### Descripción
-
-**Como** QA del proyecto FoodTech  
-**Quiero** verificar que el mesero puede monitorear el estado de sus pedidos en cocina  
-**Para** asegurar que puede informar al cliente con precisión sobre el progreso
-
-### Contexto de Negocio
-
-Los meseros deben poder:
-- Ver todas las órdenes activas en cocina
-- Identificar rápidamente el estado de cada orden
-- Conocer el progreso de preparación
-- Detectar cuándo una orden está lista para servir
-
-### Valor para el Negocio
-
-- Mejora comunicación con el cliente
-- Reduce interrupciones al personal de cocina
-- Permite servicio proactivo
-- Aumenta satisfacción del cliente
-
----
-
-### Criterios de Aceptación
-
-#### Escenario 1: Visualización de orden recién enviada
-
-```gherkin
-Scenario: Mesero ve su orden en el estado de cocina después de enviarla
-  Given que el mesero envió un pedido para la mesa "A1"
-  And el pedido generó la orden número 45
-  When el mesero consulta el estado de cocina
-  Then la orden 45 debe aparecer en la lista de órdenes activas
-  And la orden debe mostrar el número de mesa "A1"
-  And la orden debe mostrar los productos enviados
-```
-
-#### Escenario 2: Identificación de estado de orden en cola
-
-```gherkin
-Scenario: Orden aparece en cola cuando aún no inicia preparación
-  Given que existe una orden número 46 para la mesa "B2"
-  And ninguna estación ha iniciado la preparación
-  When el mesero consulta el estado de cocina
-  Then la orden 46 debe aparecer con estado "En Cola"
-  And el sistema debe indicar que está siguiente para preparación
-```
-
-#### Escenario 3: Identificación de orden en preparación
-
-```gherkin
-Scenario: Orden muestra estado en preparación cuando cocina está trabajando
-  Given que existe una orden número 47 para la mesa "C3"
-  And al menos una estación está preparando tareas de esa orden
-  When el mesero consulta el estado de cocina
-  Then la orden 47 debe aparecer con estado "Preparando"
-  And el sistema debe mostrar un indicador de actividad
-```
-
-#### Escenario 4: Visualización de progreso por estaciones
-
-```gherkin
-Scenario: Mesero ve el progreso de preparación basado en estaciones
-  Given que existe una orden con tareas en barra, cocina caliente y cocina fría
-  And la estación de barra ha completado su tarea
-  And las otras dos estaciones están en preparación
-  When el mesero consulta el progreso de esa orden
-  Then el sistema debe mostrar que 1 de 3 estaciones completó
-  And el progreso debe indicar aproximadamente 33%
-  And el mesero debe ver cuántas tareas faltan por completar
-```
-
-#### Escenario 5: Notificación de orden completamente lista
-
-```gherkin
-Scenario: Orden aparece como lista cuando todas las estaciones completaron
-  Given que existe una orden número 48 para la mesa "D4"
-  And todas las estaciones completaron sus tareas
-  When el mesero consulta el estado de cocina
-  Then la orden 48 debe aparecer con estado "Lista"
-  And el progreso debe mostrar 100%
-  And el sistema debe indicar que puede recoger y servir la orden
-```
-
-#### Escenario 6: Lista de productos agrupados por orden
-
-```gherkin
-Scenario: Mesero ve todos los productos de una orden agrupados
-  Given que existe una orden con tareas en múltiples estaciones
-  And la orden incluye 2 bebidas, 1 plato caliente y 1 postre
-  When el mesero consulta los detalles de esa orden
-  Then el sistema debe mostrar los 4 productos juntos
-  And los productos deben estar agrupados independientemente de la estación
-```
-
----
-
-## HU-QA-005: Verificar consulta de tareas por estación de cocina
+## HU-QA-003: Verificar consulta de tareas por estación de cocina
 
 ### Descripción
 
@@ -477,7 +292,7 @@ Scenario: Verificar que tareas no se mezclan entre estaciones
 
 ---
 
-## HU-QA-006: Verificar ejecución de tareas en estaciones
+## HU-QA-004: Verificar ejecución de tareas en estaciones
 
 ### Descripción
 
@@ -565,7 +380,7 @@ Scenario: Progreso de orden aumenta al completarse tareas
 
 ---
 
-## HU-QA-007: Verificar filtrado de tareas por estado en estaciones
+## HU-QA-005: Verificar filtrado de tareas por estado en estaciones
 
 ### Descripción
 
@@ -661,7 +476,7 @@ Scenario: Sistema maneja correctamente filtros sin tareas
 
 ---
 
-## HU-QA-008: Verificar navegación por categorías de menú
+## HU-QA-006: Verificar navegación por categorías de menú
 
 ### Descripción
 
@@ -745,38 +560,6 @@ Scenario: Productos agregados mantienen indicación visual al cambiar categoría
 
 ---
 
-## 📊 Matriz de Trazabilidad QA
-
-| Historia QA | Componente | Prioridad | Complejidad | HU Relacionadas |
-|-------------|------------|-----------|-------------|-----------------|
-| HU-QA-001   | Mesero     | Alta      | Media       | HU-FRONT-001, HU-FRONT-003, HU-FRONT-005 |
-| HU-QA-002   | Mesero     | Alta      | Baja        | HU-FRONT-004 |
-| HU-QA-003   | Mesero     | Alta      | Media       | HU-FRONT-001 |
-| HU-QA-004   | Mesero     | Alta      | Alta        | HU-FRONT-006 |
-| HU-QA-005   | Cocina     | Alta      | Media       | HU-FRONT-007, HU-002 |
-| HU-QA-006   | Cocina     | Alta      | Alta        | HU-FRONT-007, HU-003 |
-| HU-QA-007   | Cocina     | Media     | Baja        | HU-FRONT-008 |
-| HU-QA-008   | Mesero     | Media     | Baja        | HU-FRONT-002 |
-
----
-
-## 🎯 Orden de Automatización Sugerido
-
-### Sprint 1: Flujos Críticos
-1. **HU-QA-001** - Flujo completo de creación de pedido
-2. **HU-QA-003** - Disponibilidad de mesas
-
-### Sprint 2: Validaciones y Modificaciones
-3. **HU-QA-002** - Modificación de pedidos
-4. **HU-QA-004** - Estado de cocina para meseros
-
-### Sprint 3: Operaciones de Cocina
-5. **HU-QA-005** - Consulta de tareas por estación
-6. **HU-QA-006** - Ejecución de tareas
-
-### Sprint 4: Filtros y Navegación
-7. **HU-QA-007** - Filtrado de tareas
-8. **HU-QA-008** - Navegación por categorías
 
 ---
 

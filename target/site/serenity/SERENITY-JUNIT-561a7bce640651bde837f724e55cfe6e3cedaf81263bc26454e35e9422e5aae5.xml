@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="1" failures="0" name="HU-QA-003 - Verificar consulta de tareas por estación de cocina" skipped="3" tests="4" time="0.26" timestamp="2026-01-12 11:27:17"><testcase name="Estación de barra ve solo tareas de bebidas"><skipped/></testcase><testcase name="Estación sin tareas pendientes"><error type="java.lang.NullPointerException"/><system-err>null&#13;
+com.google.common.base.Preconditions.checkNotNull(Preconditions.java:906)&#13;
+stepdefinitions.ConsultarTareasStepDefinitions.queElPersonalDeCocinaFriaAccedeASuEstacion(ConsultarTareasStepDefinitions.java:1)&#13;
+✽.que el personal de cocina fría accede a su estación(file:///D:/empresas22/sofka/taller%2010/proyecto%20(cambiar%20nombre)/FoodTech-ScreenPlay/src/test/resources/features/HU_QA_003_ConsultarTareasPorEstacion.feature:22)&#13;
+</system-err></testcase><testcase name="Información completa de cada tarea"><skipped/></testcase><testcase name="el mesero ha seleccionado la mesa &quot;D4&quot;"><skipped/></testcase></testsuite>
